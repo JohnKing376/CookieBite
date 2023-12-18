@@ -1,0 +1,623 @@
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url(../netflix-sans-font/NetflixSans-Medium.woff2);
+    font-weight: 700; 
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url(../netflix-sans-font/NetflixSans-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url(../netflix-sans-font/NetflixSans-Bold.woff2);
+    font-weight: 900;
+}
+
+:root {
+    --clr-secondary-400: #000;
+    --clr-primary-200: #E50914;
+    --clr-neutral-100:  #fff;
+
+    --fs-100:0.85rem;
+    --fs-200: 1rem;
+    --fs-300: 1.5rem;
+    --fs-400: 2rem;
+    --fs-500: 2.5rem;
+    --fs-600: 3rem;
+    --fs-700: 4rem;
+    --fs-800: 5rem;
+
+
+    --ff-default: 'Netflix Sans';
+
+    --fw-bold: 400;
+    --fw-bolder: 700;
+    --fw-big: 900;
+
+    --sizing-100: .5rem;
+    --sizing-200:  1rem;
+    --sizing-300:  1.5rem;
+    --sizing-400:  2rem;
+    --sizing-500:  2.5rem;
+    --sizing-600:  3rem;
+    --sizing-700:  3.5rem;
+    --sizing-800:  4.5rem;
+    --sizing-900:  5rem;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Utility Classes */
+
+.container {
+    --max-width: 1190px;
+    --padding: 1rem;
+
+    width:min(var(--max-width), 100% - var(--padding) * 2);
+    margin-inline: auto;
+}
+
+.fg-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    background-color: var(--clr-primary-200);
+    color: var(--clr-neutral-100);
+    padding: var(--sizing-100) var(--sizing-200);
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.41s ease-in-out;
+}
+
+.button:hover {
+    transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1);
+    background: rgb(193, 17, 25);
+
+}
+
+.section-py {
+    padding: var(--sizing-700) 0;
+}
+
+@media(min-width: 50em) {
+    .section-py {
+        padding: var(--sizing-800) 0;
+    }
+}
+
+.section__text {
+    text-align: center;
+    flex-basis: 50%;
+}
+
+@media(min-width: 50em) {
+    .section__text {
+        text-align: left;
+    }
+}
+
+.section__text h3 {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-big);
+}
+
+
+.section__text p {
+    font-weight: var(--fw-bold);
+    font-size: 1.125rem;
+    margin-top: var(--sizing-200);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media(min-width: 50em) {
+    .section__text h3 {
+        font-size: var(--fs-600);
+    }
+
+    .section__text p {
+        font-size: 1.5rem;
+    }
+}
+
+
+.sr-impo {
+    flex-direction: column-reverse;
+}
+
+
+body {
+    font-family: var(--ff-default);
+    font-size: var(--fs-100);
+    color: var(--clr-neutral-100);
+    background: var(--clr-secondary-400);
+}
+
+.header-overlay {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url(../images/NG-en-20230918-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+@media(min-width: 50em) {
+    .header-overlay {
+        height: 43.75rem;
+    }
+
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(0 0 0 / 40%);
+}
+
+header a svg{
+    width: 5.625rem;
+    height: 2.5rem;
+    fill: var(--clr-primary-200);
+}
+
+@media(min-width: 50em) {
+    header a svg {
+        width: 9.25rem;
+        height: 2.5rem;
+        fill: var(--clr-primary-200);
+    }
+}
+
+header {
+    padding-block: var(--sizing-300);
+}
+
+.hero-housing {
+    position: sticky;
+    z-index: 999;
+    padding: 0rem 0 2rem;
+}
+
+.hero-text {
+    padding-block-start: 2.87rem;
+    text-align: center;
+}
+
+
+@media(min-width:50em) {
+    .hero-text {
+        padding-block-start: 12.5rem;
+    }
+}
+
+.hero-text h3 {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-big);
+}
+
+.hero-text p{
+    font-size: 1.125rem;
+    font-weight: var(--fw-bold);
+    padding-block: var(--sizing-200);
+}
+@media(min-width:50em) {
+
+    .hero-text h3 {
+        font-size: var(--fs-600);
+    }
+
+    .hero-text p {
+        font-size: var(--fs-300);
+    }
+
+
+}
+
+.form {
+    text-align: center;
+}
+
+.form p {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 30em) {
+    .form p {
+        font-size: 1.125rem;
+        /* width: 18.75rem; */
+        text-align: center;
+        margin: 0 auto;
+    }  
+
+}
+
+.sign-up-form {
+    display: flex;
+    position: relative;
+    gap: var(--sizing-200);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: var(--sizing-200);
+}
+
+@media(min-width: 50em) {
+    .sign-up-form {
+        flex-direction: row;
+        margin-block: var(--sizing-200);
+    }
+}
+
+.sign-up-form > .form-field {
+    width: 23rem;
+    height: 3rem;
+    border-radius: 5px;
+    position: relative;
+    background: rgba(22,22,22,0.7);
+    border-color: rgba(128,128,128,0.7);
+    overflow: hidden;
+    outline: none;
+}
+
+.sign-up-form > .form-field > input:focus {
+    outline: var(--clr-neutral-100) solid 0.125rem;
+}
+
+.sign-up-form > .form-field > input {
+    width: 23rem;
+    height: 3rem;
+    color:var(--clr-neutral-100);
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-left: 20px;
+    border-style: solid;
+    background: transparent;
+    outline: none;
+}
+
+.sign-up-form > .form-field > label {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    line-height: 50px;
+    transition: 0.3s ;
+    font-size: var(--fs-200);
+}
+
+.sign-up-form > .form-field >input:focus + label {
+    line-height: 25px;
+    font-size: 0.75rem;  
+}
+
+.sign-up-form > .form-field > input:not(:placeholder-shown) + label {
+    line-height: 25px;
+    font-size: 0.75rem;
+}
+ 
+
+.form .button[data-sign-up="button"] {
+    font-size: var(--fs-300);
+}
+
+@media(max-width:50em) {
+    .form .button[data-sign-up="button"] {
+        padding: .8rem var(--sizing-500);
+    }
+}
+
+/* Section Divider */
+
+hr {
+    background-color: rgb(35,35,35);
+    border: 1px solid rgb(35,35,35);
+    height: 10px;
+    margin: 0;
+}
+
+/* Devices Section */
+
+.flex-group {
+    flex-direction: column;
+}
+
+@media(min-width: 50em) {
+    .flex-group {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.rvloop{
+    position: relative;
+}
+
+.iautoloop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 72.4%;
+    max-height: 54%;
+    left: 13.4%;
+    top: 21%;
+    z-index: -999;
+    overflow: hidden;
+}
+
+
+
+
+.imgs-flex {
+    margin: 0 auto;
+}
+
+/* Download Section */
+
+.flex-group[data-reverse="true"] {
+    flex-direction: column-reverse;
+}
+
+.flex-group[data-thrice="true"] .prflex .column-text h4 {
+    font-size: var(--fs-100);
+    font-weight: var(--fw-bolder);
+}
+
+.flex-group[data-thrice="true"] .prflex .column-text p {
+    color: #0071eb;
+    font-size: 0.75rem;
+}
+
+.prbottom {
+    position: relative;
+}
+
+.download-gif img{
+    height: 3rem;
+}
+
+.flex-group[data-thrice="true"] .prflex img {
+    height: 60px;
+    padding-left: 8px;
+    flex-grow: 0;
+}
+
+.flex-group[data-thrice="true"] {
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    position: absolute;
+    background: #000;
+    border: 2px solid rgba(128,128,128,0.7);
+    box-shadow: 0 0 2em 0 rgb(0,0,0);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    z-index: 1;
+    height: 26%;
+    bottom: 5%;
+    left: 16%;
+} 
+
+.prflex {
+    display: flex;
+    flex-direction: row;
+    gap: var(--sizing-100);
+    align-items: center; 
+}
+
+@media(min-width:30em) {
+    .flex-group[data-thrice="true"] {
+        width: 60%;
+        height: 20%;
+        bottom: 5%;
+        left: 20%;
+    } 
+    .flex-group[data-thrice="true"] .prflex .column-text h4 {
+        font-size: 1rem;
+        font-weight: var(--fw-bolder);
+    }
+    
+    .flex-group[data-thrice="true"] .prflex .column-text p {
+        font-size: var(--fs-100);
+    }
+
+    .prflex {
+        gap: var(--sizing-300);
+    }
+
+    .download-gif img{
+        height: 3.5rem;
+    }
+}
+
+
+@media(min-width: 50em) {
+    .flex-group[data-thrice="true"] .prflex img {
+        height: 80px;
+    }
+    
+    .flex-group[data-thrice="true"] {
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        bottom: 5%;
+        left: 15%;
+        height: 24%;
+        
+    }
+
+    .flex-group[data-reverse="true"] {
+        flex-direction: unset;
+    }
+
+    .flex-group[data-thrice="true"] .prflex .column-text h4 {
+        font-size: 1.2rem;
+        font-weight: var(--fw-bolder);
+    }
+    
+    .flex-group[data-thrice="true"] .prflex .column-text p {
+        font-size: var(--fs-200);
+    }
+
+    .download-gif img{
+        height: 4rem;
+    }
+    
+}
+
+@media(min-width:80em) {
+    .flex-group[data-thrice="true"] {
+        width: 55%;
+        bottom: 7%;
+        left: 22%;
+        height: 23%;
+    }
+   
+}
+
+
+/* Accordians */
+#aacordion {
+    margin: 100px auto;
+    width: 600px;
+    margin-inline: auto;
+}
+
+#accordion li {
+    list-style-type: none;
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #000;
+    /* height: 80px; */
+
+}
+
+#accordion li label {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+
+}
+
+.spanny {
+    transform: rotate(90deg);
+    font-size: 25px;
+    transition: transform .3s ease-in-out;
+}
+
+.rotateSpanny {
+    transform: rotate(270deg);
+}
+
+#accordion label + input[type="radio"] {
+    display: none;
+}
+
+.content {
+    padding: 0px 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease-in-out;
+}
+
+.showContent {
+    max-height: 400px;
+}
+
+#accordion label + input[type="radio"]:checked + .content {
+    max-height: 400px;
+}
